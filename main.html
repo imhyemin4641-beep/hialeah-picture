@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>한국현대사 Report: 부산시민공원</title>
+    <title>부산시민공원 연구 보고서</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -25,20 +25,18 @@
                         sans: ['"Noto Sans KR"', 'sans-serif'],
                     },
                     colors: {
-                        // Base Neutral Colors (Stone - Warm Gray for "Subtle" look)
                         slate: {
-                            50: '#fafaf9', // stone-50
-                            100: '#f5f5f4', // stone-100
-                            200: '#e7e5e4', // stone-200
-                            300: '#d6d3d1', // stone-300
-                            400: '#a8a29e', // stone-400
-                            500: '#78716c', // stone-500
-                            600: '#57534e', // stone-600
-                            700: '#44403c', // stone-700
-                            800: '#292524', // stone-800
-                            900: '#1c1917', // stone-900
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            200: '#e7e5e4',
+                            300: '#d6d3d1',
+                            400: '#a8a29e',
+                            500: '#78716c',
+                            600: '#57534e',
+                            700: '#44403c',
+                            800: '#292524',
+                            900: '#1c1917',
                         },
-                        // Accent Color (Forest Green - Slightly Muted)
                         forest: {
                             50: '#f0fdf4',
                             100: '#dcfce7',
@@ -51,7 +49,6 @@
                             800: '#166534',
                             900: '#14532d',
                         },
-                        // New Subtle Secondary Colors (Sand/Amber & Soft Rose)
                         sand: {
                             50: '#fffbeb',
                             100: '#fef3c7',
@@ -81,8 +78,8 @@
 
     <style>
         body {
-            background-color: #fafaf9; /* Stone-50 Background */
-            color: #44403c; /* Stone-700 Text */
+            background-color: #fafaf9;
+            color: #44403c;
             overflow-x: hidden;
         }
         
@@ -105,7 +102,7 @@
         ::-webkit-scrollbar-thumb { background: #d6d3d1; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #a8a29e; }
 
-        .hidden-section { display: none; }
+        .hidden-section { display: none !important; }
 
         .accordion-content {
             transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
@@ -122,18 +119,19 @@
         .detail-popup.active { display: block; }
     </style>
 </head>
-<body class="antialiased min-h-screen flex flex-col items-center justify-center p-4 md:p-8">
+<!-- Body allows scrolling naturally now -->
+<body class="antialiased min-h-screen flex flex-col items-center p-4 md:p-8">
 
-    <!-- Main Container -->
-    <div id="app" class="w-full max-w-6xl bg-white rounded-3xl shadow-card min-h-[85vh] relative overflow-hidden flex flex-col border border-slate-200">
+    <!-- Main Container: Removed fixed height and overflow-hidden to fix scroll issues -->
+    <div id="app" class="w-full max-w-6xl bg-white rounded-3xl shadow-card relative flex flex-col border border-slate-200 my-4 md:my-8">
         
-        <!-- Header -->
-        <header class="p-8 border-b border-slate-100 flex justify-between items-center bg-white z-10 sticky top-0">
+        <!-- Header: Sticky to keep navigation accessible -->
+        <header class="p-8 border-b border-slate-100 flex justify-between items-center bg-white/95 backdrop-blur-sm z-50 sticky top-0 rounded-t-3xl">
             <div class="flex items-center gap-3 cursor-pointer group" onclick="showPage('home')">
                 <div class="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center text-white shadow-md group-hover:bg-forest-600 transition-colors">
                     <i class="fa-solid fa-book-open text-xs"></i>
                 </div>
-                <h1 class="text-xl font-bold text-slate-800 tracking-tight group-hover:text-forest-600 transition-colors">한국현대사 Report</h1>
+                <h1 class="text-xl font-bold text-slate-800 tracking-tight group-hover:text-forest-600 transition-colors">한국현대사 Report: 부산시민공원</h1>
             </div>
             <button onclick="showPage('home')" id="home-btn" class="hidden text-sm font-medium text-slate-500 hover:text-forest-600 transition-colors">
                 <i class="fa-solid fa-arrow-left mr-2"></i>목차로 돌아가기
@@ -141,16 +139,17 @@
         </header>
 
         <!-- Content Area -->
-        <main class="flex-1 relative bg-slate-50/30">
+        <main class="flex-1 relative bg-slate-50/30 rounded-b-3xl min-h-[600px]">
             
             <!-- PAGE: HOME (TOC) -->
-            <div id="page-home" class="absolute inset-0 p-8 md:p-12 overflow-y-auto">
-                <div class="max-w-4xl mx-auto h-full flex flex-col justify-center">
+            <!-- Removed absolute positioning to allow natural flow -->
+            <div id="page-home" class="p-8 md:p-12 min-h-[70vh] flex flex-col justify-center">
+                <div class="max-w-4xl mx-auto w-full">
                     <div class="mb-16 text-center slide-up">
                         <span class="text-forest-600 text-sm font-bold uppercase tracking-widest mb-2 block">Project Report</span>
                         <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight word-keep-all">
                             부산시민공원을 둘러싼<br>
-                            <span class="text-forest-600">역사와 기억의 재현</span>
+                            <span class="text-forest-600">시선들과 공간 재생</span>
                         </h2>
                     </div>
 
@@ -176,20 +175,22 @@
                         </div>
                         <div onclick="showPage('ch4')" class="nav-card bg-white p-8 rounded-2xl border border-slate-100 cursor-pointer group hover:bg-slate-50 transition-colors">
                             <span class="text-xs font-bold text-slate-400 mb-4 block group-hover:text-forest-500 transition-colors">CHAPTER 04</span>
-                            <h3 class="text-xl font-bold text-slate-800 mb-2 group-hover:text-forest-700 transition-colors">역사와 기억의 재현</h3>
-                            <p class="text-sm text-slate-500">선별된 역사와 삭제된 기억들</p>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2 group-hover:text-forest-700 transition-colors">역사의 재현 방식</h3>
+                            <p class="text-sm text-slate-500">재생과 재활용 그리고 한계점</p>
                             <div class="mt-6 flex justify-end"><i class="fa-solid fa-leaf text-slate-200 icon-highlight transition-colors transform group-hover:rotate-45 duration-300"></i></div>
                         </div>
+                        <!-- Updated Chapter 5 TOC -->
                         <div onclick="showPage('ch5')" class="nav-card bg-white p-8 rounded-2xl border border-slate-100 cursor-pointer group hover:bg-slate-50 transition-colors">
                             <span class="text-xs font-bold text-slate-400 mb-4 block group-hover:text-forest-500 transition-colors">CHAPTER 05</span>
-                            <h3 class="text-xl font-bold text-slate-800 mb-2 group-hover:text-forest-700 transition-colors">결론</h3>
-                            <p class="text-sm text-slate-500">연구의 마무리: 남겨진 과제와 성찰</p>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2 group-hover:text-forest-700 transition-colors">연구의 기대효과 및 활용방안</h3>
+                            <!-- Subtitle Removed -->
                             <div class="mt-6 flex justify-end"><i class="fa-solid fa-leaf text-slate-200 icon-highlight transition-colors transform group-hover:rotate-45 duration-300"></i></div>
                         </div>
+                        <!-- Updated Chapter 6 TOC -->
                         <div onclick="showPage('ch6')" class="nav-card bg-white p-8 rounded-2xl border border-slate-100 cursor-pointer group hover:bg-slate-50 transition-colors">
                             <span class="text-xs font-bold text-slate-400 mb-4 block group-hover:text-forest-500 transition-colors">CHAPTER 06</span>
                             <h3 class="text-xl font-bold text-slate-800 mb-2 group-hover:text-forest-700 transition-colors">참고문헌 및 예상 목차</h3>
-                            <p class="text-sm text-slate-500">연구의 기반 자료와 향후 계획</p>
+                            <!-- Subtitle Removed -->
                             <div class="mt-6 flex justify-end"><i class="fa-solid fa-leaf text-slate-200 icon-highlight transition-colors transform group-hover:rotate-45 duration-300"></i></div>
                         </div>
                     </div>
@@ -197,8 +198,8 @@
             </div>
 
             <!-- PAGE: Chapter 1 -->
-            <div id="page-ch1" class="hidden-section absolute inset-0 overflow-y-auto">
-                <div class="max-w-4xl mx-auto p-8 md:p-12 fade-in">
+            <div id="page-ch1" class="hidden-section p-8 md:p-12 fade-in">
+                <div class="max-w-4xl mx-auto">
                     <!-- ... (Chapter 1 Content remains same) ... -->
                     <span class="text-forest-600 font-bold text-xs tracking-widest mb-2 block">CHAPTER 01</span>
                     <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-8">서론:<br>부산시민공원을 둘러싼<br>역사와 기억의 재현</h2>
@@ -317,8 +318,8 @@
                                                     <i class="fa-solid fa-layer-group"></i>
                                                 </div>
                                                 <div>
-                                                    <strong class="block text-slate-800 text-sm mb-1">기존 연구의 한계 극복</strong>
-                                                    <p class="text-xs text-slate-600 leading-relaxed">단편적인 물리적 복원이나 특정 사건 분석을 넘어, 공원 조성 <strong>전 과정을 관통하는 거시적 메커니즘</strong>에 주목합니다.</p>
+                                                    <strong class="block text-slate-800 text-sm mb-1">기존 연구의 미시적·단편적 한계 극복</strong>
+                                                    <p class="text-xs text-slate-600 leading-relaxed">물리적 변천 복원, 특정 사건(욱일기 논란 등)의 갈등 분석, 또는 연구자 개인의 행정적 경험 기술(자기민족지)에 치중했던 선행 연구의 한계를 넘어, 공원 조성의 전 과정에 주목.</p>
                                                 </div>
                                             </div>
                                             
@@ -327,8 +328,8 @@
                                                     <i class="fa-solid fa-magnifying-glass-chart"></i>
                                                 </div>
                                                 <div>
-                                                    <strong class="block text-slate-800 text-sm mb-1">기억의 선별·배제·재현 규명</strong>
-                                                    <p class="text-xs text-slate-600 leading-relaxed">역사와 기억이 어떤 과정을 통해 선택되거나 배제되었는지, 최종적으로 어떻게 재현되었는지를 종합적으로 고찰합니다.</p>
+                                                    <strong class="block text-slate-800 text-sm mb-1">역사성의 공간적 재현방식 규명</strong>
+                                                    <p class="text-xs text-slate-600 leading-relaxed">단순한 과거 사실의 발굴이나 구술 복원(과거의 재구성) 단계를 넘어, '역사공원'이라는 기조가 실제 물리적 공간에 어떠한 방식으로 투영되고 구체화되었는지 분석.</p>
                                                 </div>
                                             </div>
                                             
@@ -337,8 +338,8 @@
                                                     <i class="fa-solid fa-scale-balanced"></i>
                                                 </div>
                                                 <div>
-                                                    <strong class="block text-slate-800 text-sm mb-1">공공역사의 장(場) 분석</strong>
-                                                    <p class="text-xs text-slate-600 leading-relaxed">다양한 주체들(관, 민, 전문가)의 인식 경합과 타협 과정을 분석하고, <strong>'공식 기억'</strong>의 제도화 과정을 추적합니다.</p>
+                                                    <strong class="block text-slate-800 text-sm mb-1">공공역사의 장(場)으로서의 역학 관계 분석</strong>
+                                                    <p class="text-xs text-slate-600 leading-relaxed">중앙·지방정부와 지역 주민 등 다양한 주체들의 복잡한 이해관계가 얽힌 공원 조성 과정을 '공공역사의 장'으로 설정하고, 그 속에서 발생한 시선의 경합과 타협, 그리고 '역사성'이 구조화되는 과정을 규명.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -372,11 +373,11 @@
                                     </h4>
                                     <div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
                                         <p class="text-slate-600 text-sm leading-relaxed text-justify mb-4">
-                                            기존의 연구들은 주로 <strong>공간의 물리적 변천을 복원</strong>하거나, 반환 후 개발 계획의 수립, 혹은 부산시민공원 역사관 천장의 욱일기 문양 논란이나 명칭 제정 같은 <strong>특정 사건 중심의 갈등 양상</strong>을 분석하는 데 치중했습니다.
+                                            기존 연구들은 주로 공간의 물리적 변천을 복원하거나, 반환 후 개발 계획 수립, 혹은 역사관 천장의 욱일기 문양 논란이나 명칭 제정 같은 특정 사건 중심의 갈등 양상을 분석하는 데 머물러 있습니다.
                                         </p>
                                         <div class="bg-slate-50 p-4 rounded-lg text-sm text-slate-700 border-l-4 border-slate-400">
                                             <strong class="block mb-1 text-slate-900">📉 한계점</strong>
-                                            하야리아 캠프가 시민공원으로 재탄생하기까지의 전 과정을 관통하며, 그 과정에서 역사와 기억이 어떻게 <span class="text-red-500 font-bold">‘선별·선택’</span>되고, <span class="text-red-500 font-bold">‘배제’</span>되며 최종적으로 <span class="text-red-500 font-bold">‘재현’</span>되었는지를 종합적으로 고찰한 연구는 미흡한 실정입니다.
+                                            하야리아 캠프가 부산시민공원으로 재탄생하기까지의 전 과정을 관통하며, 그 이면에서 작동한 담론과 시선의 경합, 그리고 그 공간을 둘러싼 역사성 및 공간성의 재현 방식을 종합적으로 고찰한 연구는 미흡한 실정입니다.
                                         </div>
                                     </div>
                                 </div>
@@ -413,12 +414,13 @@
                                     </h4>
                                     <div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
                                         <p class="text-slate-600 text-sm leading-relaxed text-justify mb-4">
-                                            ‘역사공원’은 식민과 냉전의 기억을 물리적 공간에 투영하겠다는 의지입니다. 그러나 기존 연구는 역사적 사실 발굴이나 기억 복원이라는 <strong>‘과거의 재구성’</strong> 단계에 머물러 있습니다.
+                                            '역사공원'은 식민과 냉전의 기억을 물리적 공간에 투영하겠다는 의지의 표현입니다. 그러나 선행 연구들은 단순히 서면경마장이나 하야리아 부대 시기의 역사적 사실을 발굴하고 구술을 복원하는 '과거의 재구성' 단계에 그치고 있습니다.
                                         </p>
                                         <div class="flex items-center gap-4 p-4 bg-forest-50/50 rounded-lg border border-forest-100">
                                             <i class="fa-solid fa-magnifying-glass text-forest-500 text-xl"></i>
                                             <p class="text-sm text-forest-900 font-medium">
-                                                발굴된 역사와 기억이 어떤 메커니즘을 거쳐 현재의 공원을 형성했는지, 그 <strong>동태적인 형성 과정</strong>에 대한 설명이 필요합니다.
+                                                <strong class="block text-forest-800 mb-1">🔍 동태적 형성 과정 규명 필요</strong>
+                                                이 공간을 둘러싼 담론들과 시선들이 공원 조성과정에서 어떻게 나타났는지, 서로 어떻게 경합했는지 그 동태적인 형성 과정의 규명이 필요합니다.
                                             </p>
                                         </div>
                                     </div>
@@ -431,21 +433,21 @@
                                     </h4>
                                     <div class="bg-gradient-to-br from-white to-forest-50 p-6 rounded-xl border border-forest-200 shadow-sm">
                                         <p class="text-slate-700 text-sm leading-relaxed text-justify mb-6">
-                                            물론 유현(2018, 2025) 등 선행 연구가 존재하나, 개인적 경험이나 미시적 사건에 방점이 찍혀 있습니다. 본 연구는 이를 넘어 <strong>공원 조성이라는 거대한 공공역사의 장</strong>을 조망합니다.
+                                            유현(2018, 2025) 등 선행 연구가 존재하나, 개인적 경험(자기민족지)이나 미시적 사건에 방점이 찍혀 있습니다. 본 연구는 이를 넘어 공원 조성을 다양한 이해관계가 얽힌 거대한 공공역사의 장으로 조망합니다.
                                         </p>
                                         <div class="grid grid-cols-1 gap-4">
                                             <div class="flex items-start gap-3">
                                                 <div class="mt-1 w-6 h-6 rounded-full bg-forest-500 text-white flex items-center justify-center shrink-0 text-xs"><i class="fa-solid fa-check"></i></div>
                                                 <div>
-                                                    <strong class="block text-forest-800 text-sm">다양한 주체의 경합과 타협</strong>
-                                                    <p class="text-xs text-forest-600">관(官), 민(民), 전문가가 공간의 역사성을 어떻게 인식하고 경합했는지 분석</p>
+                                                    <strong class="block text-forest-800 text-sm">다양한 주체의 시선 경합과 타협</strong>
+                                                    <p class="text-xs text-forest-600">중앙·지방정부, 지역 주민, 전문가 등 다양한 주체들의 이 공간을 둘러싼 시선들 어떻게 나타났는지 그 전체 과정을 분석</p>
                                                 </div>
                                             </div>
                                             <div class="flex items-start gap-3">
                                                 <div class="mt-1 w-6 h-6 rounded-full bg-forest-500 text-white flex items-center justify-center shrink-0 text-xs"><i class="fa-solid fa-check"></i></div>
                                                 <div>
-                                                    <strong class="block text-forest-800 text-sm">공식 기억의 제도화 규명</strong>
-                                                    <p class="text-xs text-forest-600">최종적으로 어떤 기억이 '공식 기억' 혹은 '지배적 기억'으로 정착했는지 추적</p>
+                                                    <strong class="block text-forest-800 text-sm">부산시민공원의 재현 방식 규명</strong>
+                                                    <p class="text-xs text-forest-600">공간의 역사성 및 공간성이 물리적 공간으로 구조화되는 과정에서 어떤 방식으로 재현되었는지 역사성의 재현 방식을 규명</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -458,8 +460,8 @@
             </div>
 
             <!-- PAGE: Chapter 2 -->
-            <div id="page-ch2" class="hidden-section absolute inset-0 overflow-y-auto">
-                <div class="max-w-4xl mx-auto p-8 md:p-12 fade-in">
+            <div id="page-ch2" class="hidden-section p-8 md:p-12 fade-in">
+                <div class="max-w-4xl mx-auto">
                     <span class="text-forest-500 font-bold text-xs tracking-widest mb-2 block">CHAPTER 02</span>
                     <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-8">반환 운동과 공원화의 결정:<br>'개발'과 '공공성'의 경합</h2>
                     <div class="mb-12"><h3 class="text-xl font-bold text-slate-700 mb-4 border-l-4 border-forest-500 pl-4">1. 왜 '공원'이어야 했는가?</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start"><div class="space-y-4 text-slate-600 leading-relaxed text-sm"><p><strong class="text-slate-800 block mb-1">① 기형적 도시 구조 회복</strong> 단순한 녹지 조성을 넘어, 기형적인 도시 구조를 회복하고 삶의 질을 담보하기 위한 선택이었습니다.</p><p><strong class="text-slate-800 block mb-1">② 녹지 공간의 절대적 부족</strong> 1인당 공원 면적이 10㎡ 안팎으로 최하위 수준이었으며, 실질 체험 면적은 1㎡에 불과했습니다.</p><p><strong class="text-slate-800 block mb-1">③ 도심의 폐 기능</strong> 도심형 공원이 전무한 상태에서 '도심의 폐' 기능을 수행해야 한다는 당위성이 부여되었습니다.</p><p><strong class="text-slate-800 block mb-1">④ 시민들의 절실한 소망</strong> 특정 집단이 아닌 전체 시민을 위한 휴식 및 녹지 공간으로 활용되기를 절실히 원했습니다.</p><p><strong class="text-slate-800 block mb-1">⑤ 도심 평지의 희소성</strong> 17만 평에 달하는 대단위 평지라는 희소성이 공원화 논리에 힘을 실었습니다.</p></div><div class="bg-white p-6 rounded-2xl shadow-soft border border-slate-100"><h4 class="text-sm font-bold text-slate-500 mb-4 text-center">당시 부산시민 실질 체험 녹지 면적</h4><canvas id="chart-green-space"></canvas></div></div></div>
@@ -475,12 +477,61 @@
             </div>
 
             <!-- PAGE: Chapter 3 -->
-            <div id="page-ch3" class="hidden-section absolute inset-0 overflow-y-auto">
-                 <div class="max-w-4xl mx-auto p-8 md:p-12 fade-in">
+            <div id="page-ch3" class="hidden-section p-8 md:p-12 fade-in">
+                 <div class="max-w-4xl mx-auto">
                     <span class="text-forest-500 font-bold text-xs tracking-widest mb-2 block">CHAPTER 03</span>
                     <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-8">다양한 시선들</h2>
                     <!-- ... (Same as previous Ch3) ... -->
                      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12"><div class="bg-white p-8 rounded-2xl shadow-soft border border-slate-100 relative overflow-hidden group"><div class="absolute top-0 right-0 w-24 h-24 bg-slate-100 rounded-bl-full -mr-4 -mt-4 transition-all group-hover:bg-slate-200"></div><h3 class="text-lg font-bold text-slate-800 mb-4 relative z-10">중앙정부의 시선</h3><p class="text-3xl font-bold text-slate-300 mb-2">"경제적 실패 공간"</p><p class="text-slate-600 text-sm leading-relaxed relative z-10 mb-4">반환 공여지를 역사적 장소가 아닌, 낙후된 공간으로 규정하고 경제적 효용성에 초점을 맞춤.</p><div class="relative z-10 border-t border-slate-100 pt-4 mt-2"><p class="text-[10px] text-slate-400 leading-tight mb-3">* 참고: 대한국토·도시계획학회(2007), 발전위원회(2017) 등</p><button onclick="showPage('detail-gov')" class="text-xs font-bold text-forest-600 hover:text-forest-800 flex items-center gap-1 transition-colors">상세내용 보기 <i class="fa-solid fa-arrow-right text-[10px]"></i></button></div></div><div class="bg-slate-800 p-8 rounded-2xl shadow-soft border border-slate-700 relative overflow-hidden text-white group"><div class="absolute top-0 right-0 w-24 h-24 bg-slate-700 rounded-bl-full -mr-4 -mt-4 transition-all group-hover:bg-slate-600"></div><h3 class="text-lg font-bold text-white mb-4 relative z-10">부산시와 시민사회</h3><p class="text-3xl font-bold text-slate-400 mb-2">"역사의 지층"</p><p class="text-slate-200 text-sm leading-relaxed relative z-10 mb-4">부산의 근현대사를 증언하는 역사적 자산으로 규정. 100여 년의 아픔과 역사를 보존·활용해야 한다고 역설.</p><div class="relative z-10 mt-4 p-4 bg-slate-700 rounded-xl border border-slate-600 text-xs"><div class="flex items-start gap-3"><div class="w-8 h-8 rounded-full bg-slate-500 flex items-center justify-center shrink-0"><i class="fa-solid fa-user-tie text-white"></i></div><div><span class="block text-forest-300 font-bold mb-1">이훈상 교수 (동아대 사학과)</span><p class="text-slate-300 italic">"이 땅에 남은 일본과 미국의 역사를 우리가 품을 수 있을 때 한국이 더 풍요로워진다. 아픈 역사일지라도 이를 보존하고 스토리텔링을 입혀 관광 자원화해야 한다."</p><span class="block text-slate-500 text-[10px] mt-1 text-right">- 「아픈 과거도 문화자산, 허무는 게 능사 아니다」</span></div></div></div><div class="relative z-10 border-t border-slate-600 pt-4 mt-4"><button onclick="showPage('detail-busan')" class="text-xs font-bold text-forest-400 hover:text-forest-300 flex items-center gap-1 transition-colors">상세내용 보기 <i class="fa-solid fa-arrow-right text-[10px]"></i></button></div></div></div><h3 class="text-xl font-bold text-slate-700 mb-6 border-l-4 border-forest-500 pl-4">설계와 제도의 딜레마</h3><div class="mb-8 bg-white rounded-2xl border border-slate-200 shadow-sm p-6"><div class="flex flex-col md:flex-row gap-6"><div class="md:w-1/3 border-b md:border-b-0 md:border-r border-slate-100 flex flex-col justify-center items-center text-center pb-4 md:pb-0 md:pr-4"><div class="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mb-3"><i class="fa-solid fa-user-pen text-3xl text-slate-400"></i></div><h4 class="text-lg font-bold text-slate-800">James Corner</h4><span class="text-xs text-slate-500">조경가 / 도시설계가</span></div><div class="md:w-2/3 text-sm"><h5 class="text-forest-600 font-bold mb-2 uppercase text-xs tracking-wider">Education</h5><p class="text-slate-600 mb-4">펜실베이니아대학교 대학원 조경, 도시설계 석사</p><h5 class="text-forest-600 font-bold mb-2 uppercase text-xs tracking-wider">Career</h5><ul class="text-slate-600 space-y-1 list-disc list-inside"><li>필드오퍼레이션 (Field Operations) 대표</li><li>2000~ 미국 펜실베이니아대학교 조경건축학과 학과장</li><li>미국 펜실베이니아대학교 부교수</li><li>1999 스웨덴 왕립공과대학 방문교수</li></ul></div></div></div><div class="bg-white rounded-2xl border border-slate-200 overflow-hidden mb-8"><div class="p-6 border-b border-slate-100 bg-slate-50"><h4 class="font-bold text-slate-800">제임스 코너의 '얼루비움'과 백지화 논란</h4></div><div class="p-6 space-y-4"><p class="text-slate-600 text-sm leading-relaxed">부산시가 국제공모를 통해 선정한 제임스 코너의 초기 구상안(얼루비움)은 부지의 역사성에 대한 정보가 부족한 상태에서 출발한 <strong>“백지상태의 구상안”</strong>이었습니다. 이는 기존의 지형과 기억을 덮고 완전히 새로운 문화를 이식하는 방식으로, 마권판매소 건물 하나만을 남기고 나머지는 모두 철거하는 계획이었습니다.</p><div class="bg-red-50 border-l-4 border-red-400 p-4 rounded-r-lg"><p class="text-xs text-red-800 font-medium mb-1"><i class="fa-solid fa-triangle-exclamation mr-1"></i> 전문가 비판 (부산대 우신구 교수)</p><p class="text-sm text-slate-700">"하얄리아 부지가 갖고 있는 기억마저도 삭제하는 것이다."</p></div><div class="bg-slate-50 border border-slate-200 p-5 rounded-xl shadow-sm relative mt-2"><div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-400 to-slate-400 rounded-t-xl"></div><h5 class="text-sm font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-bullhorn text-red-500"></i> 시민사회의 강력한 경고</h5><p class="text-sm text-slate-600 leading-relaxed italic">"유솜건물의 원형 유지를 주장했으나 부산시는 2001년에 이를 모두 없애 버렸으며 국립국악원을 신축했던 사례를 기억해야 한다."</p><div class="mt-2 text-xs text-slate-400 text-right font-medium">- 허운영 공동운영위원장 (하야리아 시민공원 추진 범시민운동본부)</div></div></div></div><div class="relative pl-8 border-l-2 border-slate-200 space-y-8"><div class="relative"><div class="absolute -left-[41px] top-0 w-6 h-6 rounded-full bg-slate-400 text-white flex items-center justify-center text-xs">!</div><h4 class="font-bold text-slate-800 mb-2">제도적 딜레마 (법의 모순)</h4><div class="bg-slate-100 p-5 rounded-xl text-sm text-slate-600 space-y-4"><p class="leading-relaxed">역사적 흔적을 보존하려는 의지는 역설적이게도 법과 제도의 벽에 부딪혔습니다. 당시 관련 법안들은 서로 상충하여 부산시에게 <strong>역사적 건물을 철거하도록 유도하는 강력한 압박 요인</strong>으로 작용했습니다.</p><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm"><strong class="block text-slate-800 mb-2 border-b border-slate-100 pb-1">주한미군 공여구역 지원특별법</strong><p class="text-xs text-slate-500">국방부가 시설물을 <strong>철거</strong>하여 반환할 경우,<br>그 비용은 <span class="text-blue-600 font-bold">국방부가 부담</span>.</p></div><div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm"><strong class="block text-slate-800 mb-2 border-b border-slate-100 pb-1">국유재산관리법</strong><p class="text-xs text-slate-500">부산시가 이를 <strong>보존</strong>하여 활용할 경우,<br>시설물 매입비(수백억 원)를 <span class="text-red-600 font-bold">부산시가 유상 지불</span>.</p></div></div><p class="text-xs text-slate-500 bg-slate-200/50 p-3 rounded-lg"><i class="fa-solid fa-arrow-right text-slate-400 mr-1"></i> 부산시는 이러한 불합리한 구조를 해결하기 위해 역사·문화적 가치가 있는 경우 <strong>무상 양여</strong>가 가능하도록 법 개정을 추진하였습니다.</p></div></div></div>
+                    
+                    <!-- 4. 기억의 재현과 위계화 (Chapter 4에서 이동) -->
+                    <hr class="border-slate-100 my-10">
+                    <div class="mb-12">
+                        <h3 class="text-xl font-bold text-slate-700 mb-6 border-l-4 border-forest-500 pl-4">4. 기억의 위계화와 삭제</h3>
+
+                        <!-- Content moved from Chapter 4 - Hierarchy of Memory -->
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+                            <!-- Chart Card -->
+                            <div class="lg:col-span-2 bg-white p-6 rounded-2xl shadow-soft border border-slate-100">
+                                 <h4 class="text-sm font-bold text-slate-500 mb-4 text-center">건물별 보존 가치 평가 비교 (전문가 의견조사)</h4>
+                                 <canvas id="chart-hierarchy"></canvas>
+                                 <div class="mt-4 p-4 bg-slate-50 rounded-xl text-xs text-slate-600 leading-relaxed">
+                                    <strong>📉 거대 서사 vs 미시사:</strong><br>
+                                    사령부 건물(66.3%)이나 마권발매소(54.3%) 같은 상징적 건물은 높은 보존 가치를 인정받았으나, 숙소(19.3%)나 테니스장(17.0%) 등 <strong>미군의 일상적인 삶의 공간(미시사)은 배제</strong>되는 경향을 보였습니다. 이는 기억이 동등하게 다뤄지지 않고 위계화되었음을 의미합니다.
+                                 </div>
+                            </div>
+                            
+                            <!-- Irony Card -->
+                            <div class="bg-white p-6 rounded-2xl shadow-soft border border-red-100 flex flex-col justify-center relative overflow-hidden">
+                                <div class="absolute top-0 right-0 w-20 h-20 bg-red-50 rounded-bl-full -mr-10 -mt-10"></div>
+                                <h4 class="font-bold text-slate-800 mb-4 z-10">아이러니한 이중적 태도</h4>
+                                <div class="space-y-6 z-10">
+                                    <div>
+                                        <div class="flex justify-between text-xs font-bold text-slate-500 mb-1">
+                                            <span>상징적 시기: 미군 주둔기</span>
+                                            <span>58.4%</span>
+                                        </div>
+                                        <div class="w-full bg-slate-200 rounded-full h-2">
+                                            <div class="bg-slate-500 h-2 rounded-full" style="width: 58.4%"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between text-xs font-bold text-slate-500 mb-1">
+                                            <span class="text-red-500">'하야리아' 명칭 반대</span>
+                                            <span>75.1%</span>
+                                        </div>
+                                        <div class="w-full bg-slate-200 rounded-full h-2">
+                                            <div class="bg-red-400 h-2 rounded-full" style="width: 75.1%"></div>
+                                        </div>
+                                    </div>
+                                    <p class="text-xs text-slate-600 mt-4 leading-relaxed border-t border-slate-100 pt-4">
+                                        미군 점령의 역사를 기억의 대상으로 삼으면서도, 동시에 '하야리아'라는 명칭을 삭제함으로써 역사적 상흔을 덜어내려는 이중적 태도가 나타났습니다. 그러나 시민공원 조성기의 "아픈 역사일지라도 보존하자"는 목소리와 함께 부지의 고유한 기억도 함께 사라져버렸습니다.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                     
                     <!-- Added Reference Footer for Ch 3 -->
                     <div class="mt-8 pt-6 border-t border-slate-200 text-xs text-slate-500 space-y-1">
@@ -493,8 +544,8 @@
             </div>
 
             <!-- PAGE: DETAIL (Government) -->
-            <div id="page-detail-gov" class="hidden-section absolute inset-0 overflow-y-auto">
-                <div class="max-w-4xl mx-auto p-8 md:p-12 fade-in">
+            <div id="page-detail-gov" class="hidden-section p-8 md:p-12 fade-in">
+                <div class="max-w-4xl mx-auto">
                     <button onclick="showPage('ch3')" class="mb-8 flex items-center gap-2 text-sm text-slate-500 hover:text-forest-600 transition-colors font-bold">
                         <i class="fa-solid fa-arrow-left"></i> Chapter 3로 돌아가기
                     </button>
@@ -508,8 +559,8 @@
             </div>
 
             <!-- PAGE: DETAIL (Busan/Civil) -->
-            <div id="page-detail-busan" class="hidden-section absolute inset-0 overflow-y-auto">
-                <div class="max-w-4xl mx-auto p-8 md:p-12 fade-in">
+            <div id="page-detail-busan" class="hidden-section p-8 md:p-12 fade-in">
+                <div class="max-w-4xl mx-auto">
                     <button onclick="showPage('ch3')" class="mb-8 flex items-center gap-2 text-sm text-slate-500 hover:text-forest-600 transition-colors font-bold">
                         <i class="fa-solid fa-arrow-left"></i> Chapter 3로 돌아가기
                     </button>
@@ -523,13 +574,13 @@
             </div>
 
             <!-- PAGE: Chapter 4 -->
-            <div id="page-ch4" class="hidden-section absolute inset-0 overflow-y-auto">
-                 <div class="max-w-4xl mx-auto p-8 md:p-12 fade-in">
+            <div id="page-ch4" class="hidden-section p-8 md:p-12 fade-in">
+                 <div class="max-w-4xl mx-auto">
                     <span class="text-forest-500 font-bold text-xs tracking-widest mb-2 block">CHAPTER 04</span>
-                    <!-- CHANGED TITLE HERE -->
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-8">역사와 기억의 재현<br><span class="text-sm font-normal text-slate-500">기억의 위계화와 선별된 역사</span></h2>
+                    <!-- UPDATED TITLE HERE -->
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-8">역사의 재현 방식<br><span class="text-sm font-normal text-slate-500">재생과 재활용 그리고 한계점</span></h2>
 
-                     <!-- Strategy Section with Photo Button -->
+                     <!-- Strategy Section with Photo Button (REVISED SUBTITLE) -->
                     <div class="bg-white p-8 rounded-2xl shadow-card border border-slate-100 mb-12">
                          <div class="flex items-center gap-3 mb-6">
                             <div class="w-10 h-10 rounded-full bg-forest-100 flex items-center justify-center text-forest-600">
@@ -537,7 +588,7 @@
                             </div>
                             <div class="flex-1 flex justify-between items-center">
                                 <div>
-                                    <h3 class="text-xl font-bold text-slate-800">재현의 전략: 박제를 넘어 재생·재활용으로</h3>
+                                    <h3 class="text-xl font-bold text-slate-800">재생과 재활용 그리고 한계점</h3>
                                     <p class="text-xs text-slate-500">과거를 지우지 않고 안고 가는 '흔적과 재생'</p>
                                 </div>
                                 <a href="https://imhyemin4641-beep.github.io/hialeah-picture/" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-forest-100 text-slate-600 hover:text-forest-600 rounded-lg text-xs font-bold transition-colors">
@@ -560,161 +611,85 @@
                         <div class="mt-8 flex flex-col items-center relative"><div class="absolute -top-8 bottom-1/2 w-px bg-gradient-to-b from-slate-200 to-forest-300 h-8"></div><div class="bg-gradient-to-br from-forest-50 to-white px-8 py-5 rounded-2xl border border-forest-200 text-center shadow-sm w-full max-w-lg relative z-10"><div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-forest-500 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-sm">LESSON LEARNED</div><a href="https://citizenpark.or.kr/04_int/int04_2.asp" target="_blank" class="text-sm font-bold text-forest-700 block hover:underline mb-1 flex items-center justify-center gap-2 group">Busan Citizen Park's Approach <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-forest-400 group-hover:text-forest-600"></i></a><p class="text-xs text-slate-600 leading-relaxed">고정된 시설물이 아닌, 기존 시설물의 재활용을 통해<br><strong>살아 움직이는 공간(Living Space)</strong>을 지향합니다.</p></div></div>
                     </div>
 
-                    <!-- 2. Hierarchy of Memory -->
-                    <h3 class="text-xl font-bold text-slate-700 mb-6 border-l-4 border-forest-500 pl-4">기억의 위계화와 기억의 삭제</h3>
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
-                        <!-- Chart Card -->
-                        <div class="lg:col-span-2 bg-white p-6 rounded-2xl shadow-soft border border-slate-100">
-                             <h4 class="text-sm font-bold text-slate-500 mb-4 text-center">건물별 보존 가치 평가 비교 (전문가 의견조사)</h4>
-                             <canvas id="chart-hierarchy"></canvas>
-                             <div class="mt-4 p-4 bg-slate-50 rounded-xl text-xs text-slate-600 leading-relaxed">
-                                <strong>📉 거대 서사 vs 미시사:</strong><br>
-                                사령부 건물(66.3%)이나 마권발매소(54.3%) 같은 상징적 건물은 높은 보존 가치를 인정받았으나, 숙소(19.3%)나 테니스장(17.0%) 등 <strong>미군의 일상적인 삶의 공간(미시사)은 배제</strong>되는 경향을 보였습니다. 이는 기억이 동등하게 다뤄지지 않고 위계화되었음을 의미합니다.
-                             </div>
-                        </div>
-                        
-                        <!-- Irony Card -->
-                        <div class="bg-white p-6 rounded-2xl shadow-soft border border-red-100 flex flex-col justify-center relative overflow-hidden">
-                            <div class="absolute top-0 right-0 w-20 h-20 bg-red-50 rounded-bl-full -mr-10 -mt-10"></div>
-                            <h4 class="font-bold text-slate-800 mb-4 z-10">아이러니한 이중적 태도</h4>
-                            <div class="space-y-6 z-10">
-                                <div>
-                                    <div class="flex justify-between text-xs font-bold text-slate-500 mb-1">
-                                        <span>상징적 시기: 미군 주둔기</span>
-                                        <span>58.4%</span>
-                                    </div>
-                                    <div class="w-full bg-slate-200 rounded-full h-2">
-                                        <div class="bg-slate-500 h-2 rounded-full" style="width: 58.4%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between text-xs font-bold text-slate-500 mb-1">
-                                        <span class="text-red-500">'하야리아' 명칭 반대</span>
-                                        <span class="text-red-500">75.1%</span>
-                                    </div>
-                                    <div class="w-full bg-slate-200 rounded-full h-2">
-                                        <div class="bg-red-400 h-2 rounded-full" style="width: 75.1%"></div>
-                                    </div>
-                                </div>
-                                <p class="text-xs text-slate-600 mt-4 leading-relaxed border-t border-slate-100 pt-4">
-                                    미군 점령의 역사를 기억의 대상으로 삼으면서도, 동시에 '하야리아'라는 명칭을 삭제함으로써 역사적 상흔을 덜어내려는 이중적 태도가 나타났습니다. 그러나 시민공원 조성기의 "아픈 역사일지라도 보존하자"는 목소리와 함께 부지의 고유한 기억도 함께 사라져버렸습니다.
+                    <!-- NEW SECTION: Critical Review (REQUESTED ADDITION) -->
+                    <div class="mt-12 mb-12">
+                        <h3 class="text-xl font-bold text-slate-700 mb-6 border-l-4 border-sand-500 pl-4">역사성 재현의 비판적 검토: 전문가 구성의 한계</h3>
+                        <div class="bg-white p-6 rounded-2xl shadow-soft border border-slate-100 space-y-4">
+                            <p class="text-slate-600 text-sm leading-relaxed text-justify">
+                                그러나 부산시민공원의 역사성 재현이 성공적이었는지는 비판적 검토가 필요하다. 당시 『부산시민공원 조성을 위한 전문가 의견조사』에서 대다수가 공학 분야였고 역사 전문가는 전체 1.0%에 불과했다.
+                            </p>
+                            
+                            <!-- Forum/Governance Card -->
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                                <strong class="block text-slate-800 text-base mb-2 flex items-center gap-2"><i class="fa-solid fa-handshake-angle text-sand-500"></i> 거버넌스 기구와 전문가 배제</strong>
+                                <p class="text-xs text-slate-600 leading-relaxed">
+                                    거버넌스 기구인 ‘하야리아공원포럼’은 2006년 캠프 하야리아가 폐쇄되면서 부산시의 독주에 의한 공원 조성을 우려했던 배경에서 탄생하였다. 이는 공공역사를 실천하기 위하여 전문가들이 자발적으로 조직한 모임이었다. 구성원들은 도시계획, 조경, 건축 등 ‘실무형 전문가’ 그룹이었다. 이들은 토론회를 열어 공론장을 형성하고, 이 결과를 언론에 알리면서 부산시를 압박하기도 했다. 하야리아공원포럼은 이후 2010년 민관 협치 기구인 ‘라운드테이블’ 회의체를 운영한다. 이는 ‘하야리아공원포럼’과 당시 캠프 하야리아의 반환 운동을 주도했던 단체였던 ‘범시민운동본부’의 결합으로 탄생한 것이다.
                                 </p>
                             </div>
+
+                            <p class="text-sm text-slate-600 leading-relaxed text-justify mt-4">
+                                에 역사학자가 배제되었다는 점은 시사하는 바가 크다. 하야리아공원포럼에서 당시 구성원들 중 역사학자는 포함되지 않았으나, 회의 과정에서 역사학자가 참여하여 발표하며 토론하는 과정이 있었다. 그러나 그것이 얼마나 실질적으로 효과가 있었는지는 추가적으로 검토해보아야 할 것이다 (<a href="#" class="text-forest-600 hover:underline">유현, 앞의 논문, 2025, 25쪽 참고</a>).
+                                
+                                <strong class="block mt-4 text-slate-800">👉 본 연구의 검토 방향:</strong> 본 연구는 이러한 인적 구성의 한계가 실제 조성과정에서 역사적 맥락의 소거와 물리적 형태 위주의 보존으로 귀결되었을 가능성을 검토해보고자 한다.
+                            </p>
                         </div>
                     </div>
                     
-                    <!-- Added Reference Footer for Ch 4 -->
+                    <!-- Added Reference Footer for Ch 4 (Updated for remaining content) -->
                     <div class="mt-8 pt-6 border-t border-slate-200 text-xs text-slate-500 space-y-1">
                         <p class="font-bold mb-2">참고자료:</p>
-                        <p>• 부산시민공원 소위원회, 『부산시민공원 조성을 위한 전문가 의견조사』, 2010</p>
+                        <p>• 부산시민공원 소위원회, 『부산시민공원 조성을 위한 전문가 의견조사』, 2010 (재인용)</p>
                         <p>• 『부산시민공원 관리·운영 조례』, 『부산발전포럼』, 『정책리포트』</p>
                         <p>• 「부산시의회회의록」, 『부산신문』</p>
                     </div>
                 </div>
             </div>
 
-             <!-- PAGE: Chapter 5 (결론) -->
-             <div id="page-ch5" class="hidden-section absolute inset-0 overflow-y-auto">
-                <div class="max-w-4xl mx-auto p-8 md:p-12 fade-in">
+             <!-- PAGE: Chapter 5 (연구 기대효과 및 활용방안) -->
+             <div id="page-ch5" class="hidden-section p-8 md:p-12 fade-in">
+                <div class="max-w-4xl mx-auto">
                     <div class="text-center mb-12">
                         <span class="text-forest-500 font-bold text-xs tracking-widest mb-2 block">CHAPTER 05</span>
-                        <h2 class="text-3xl md:text-4xl font-bold text-slate-800">결론: 남겨진 과제와 성찰</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold text-slate-800">연구의 기대효과 및 활용방안</h2>
                     </div>
 
-                    <!-- 1. Insight Card: The Core Paradox -->
-                    <div class="bg-white rounded-3xl p-8 md:p-10 shadow-card border border-slate-100 mb-12 relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-forest-50 rounded-bl-full -mr-10 -mt-10"></div>
-                        <div class="relative z-10">
-                            <h3 class="text-xl font-bold text-slate-800 mb-6 flex items-center gap-3">
-                                <span class="w-10 h-10 rounded-full bg-slate-800 text-white flex items-center justify-center shadow-sm">
-                                    <i class="fa-solid fa-scale-unbalanced"></i>
-                                </span>
-                                물리적 보존과 내용의 삭제
-                            </h3>
-                            <div class="flex flex-col md:flex-row gap-8">
-                                <div class="md:w-1/2">
-                                    <p class="text-slate-600 text-sm leading-relaxed text-justify">
-                                        부산시민공원은 하야리아 캠프의 시설물들을 보존하여 역사를 기억하고자 했습니다. 그러나 정작 <strong>그 역사 안에 담겨 있는 내용을 삭제해버린 채 물리적 껍데기만 남겨두는 결과</strong>를 낳았습니다.
-                                    </p>
-                                </div>
-                                <div class="md:w-1/2 bg-slate-50 p-6 rounded-2xl border-l-4 border-slate-400 flex flex-col justify-center">
-                                    <i class="fa-solid fa-quote-left text-slate-300 mb-2"></i>
-                                    <p class="text-sm text-slate-700 font-bold italic leading-relaxed">
-                                        "하야리아 부지 반환 이후 역사 공원을 조성하고자 했던 사람들의 목소리가 과연 이런 것이었는지 되돌아볼 필요가 있습니다."
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2. The Mirror: External View -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                        <!-- News Card -->
-                        <div class="bg-slate-800 text-white p-8 rounded-3xl shadow-card relative overflow-hidden group">
-                            <div class="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900"></div>
-                            <div class="relative z-10 flex flex-col h-full justify-between">
-                                <div>
-                                    <div class="flex items-center gap-2 mb-4 opacity-70">
-                                        <i class="fa-regular fa-newspaper"></i>
-                                        <span class="text-xs font-bold uppercase tracking-wider">Media Report</span>
-                                    </div>
-                                    <h4 class="text-xl font-bold leading-snug mb-2">“용산공원, 부산시민공원 실수 되풀이 말아야”</h4>
-                                    <p class="text-xs text-slate-400">2021.02.04 기사 발췌</p>
-                                </div>
-                                <div class="mt-6 pt-6 border-t border-slate-700">
-                                    <p class="text-sm text-slate-300 italic leading-relaxed">
-                                        "부산 사례를 반면교사 삼아... 주변부 난개발이 이뤄지지 않도록 관리방안을 수립하겠다."
-                                    </p>
-                                    <div class="mt-2 text-xs text-slate-500 font-bold">- 국토부 용산공원추진단</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Professor Kang Card (Replaces Assessment Card) -->
-                        <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-center relative overflow-hidden">
-                            <div class="absolute top-0 right-0 w-24 h-24 bg-forest-50 rounded-bl-full -mr-8 -mt-8 opacity-50"></div>
-                            <h4 class="font-bold text-slate-800 mb-6 flex items-center gap-2 relative z-10">
-                                <i class="fa-solid fa-user-pen text-forest-500"></i>
-                                <span>참여자의 회한</span>
-                            </h4>
-                            <div class="relative z-10 space-y-4">
-                                <i class="fa-solid fa-quote-left text-slate-200 text-3xl absolute -top-2 -left-2"></i>
-                                <p class="text-sm text-slate-600 italic leading-relaxed pl-6 relative">
-                                    “부지 잠재력에 비해 역사성·장소성을 살리지 못했다... 특별한 공원이 되길 바랐으나 밋밋해지는 결과를 가져왔다”
-                                </p>
-                                <div class="flex items-center justify-end gap-2 pt-4 border-t border-slate-100">
-                                    <div class="text-right">
-                                        <p class="text-xs font-bold text-slate-700">강 교수</p>
-                                        <p class="text-[10px] text-slate-400">부산시민공원 조성 과정 참여</p>
-                                    </div>
-                                    <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400">
-                                        <i class="fa-solid fa-user"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 3. Final Epilogue -->
-                    <div class="bg-gradient-to-br from-slate-900 to-forest-900 rounded-3xl p-10 md:p-14 text-center shadow-2xl relative overflow-hidden">
-                        <!-- Decorative Elements -->
-                        <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
-                        <div class="absolute -top-10 -right-10 w-40 h-40 bg-forest-500 rounded-full blur-3xl opacity-20"></div>
-                        <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-amber-500 rounded-full blur-3xl opacity-10"></div>
+                    <p class="text-slate-700 text-base leading-relaxed mb-10 border-l-4 border-forest-400 pl-4">
+                        본 연구는 부산시민공원 조성 과정을 단순한 물리적 공간의 변천사로 보지 않고, 해당 공간을 둘러싼 다양한 시선의 경합과 공공역사의 실천 장(場)으로 바라본다. 본 연구의 기대효과 및 활용방안은 다음과 같다.
+                    </p>
+                    
+                    <div class="space-y-8">
                         
-                        <div class="relative z-10">
-                            <i class="fa-solid fa-seedling text-forest-400 text-3xl mb-6 block animate-bounce" style="animation-duration: 3s;"></i>
-                            <h3 class="text-2xl md:text-3xl font-bold text-white mb-6 leading-tight">
-                                진정한 <span class="text-forest-400">역사와 기억의 재현</span>을 위하여
+                        <!-- 첫째: 공공역사 및 지역사의 지평 확대 -->
+                        <div class="bg-white p-6 rounded-2xl shadow-soft border border-slate-100">
+                            <h3 class="text-xl font-bold text-forest-700 mb-4 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-full bg-forest-500 text-white flex items-center justify-center text-sm font-bold">1</span>
+                                공원 조성 과정을 규명하여 지역사의 지평 확대
                             </h3>
-                            <p class="text-slate-300 text-sm md:text-base leading-relaxed max-w-2xl mx-auto mb-8 font-light">
-                                세계적 흐름에 맞춰 '역사적 흔적을 안고 가는 공원'을 지향했고, 천편일률적인 공원을 탈피하겠다고 다짐했음에도 불구하고 비판의 목소리가 나오는 이유는 무엇일까요?
+                            <p class="text-slate-600 text-sm leading-relaxed text-justify">
+                                기존 연구가 주로 조성된 공간의 물리적 형태 분석이나 과거 기억·역사의 재구성 단계에 머물렀다면, 본 연구는 공원이 조성되는 과정 그 자체에 주목한다. 중앙정부의 경제 논리, 지자체의 개발 의지, 시민사회의 역사 보존 요구 등 부산시민공원 조성과정에서 각종 주체들의 시선과 욕망이 어떻게 충돌하고 타협했는지를 분석함으로써 ‘반환 공여지’라는 특수한 공간이 ‘시민의 공간’으로 전유되는 과정을 규명한다. 나아가 이러한 지역적·공간적 사례 분석을 통해 공공역사의 논의를 구체화하고 심화하는 데 기여할 수 있을 것이다.
                             </p>
-                            <div class="inline-block border-t border-b border-slate-600 py-4">
-                                <p class="text-amber-400 font-bold text-lg md:text-xl">
-                                    "우리는 지금, 부산시민공원을 둘러싼 역사와 기억이<br class="hidden md:block"> 과연 올바르게 재현되었는지 다시 한번 물어야 합니다."
-                                </p>
-                            </div>
+                        </div>
+
+                        <!-- 둘째: 역사공원 조성 방식의 구조적 한계 지적 -->
+                        <div class="bg-white p-6 rounded-2xl shadow-soft border border-slate-100">
+                            <h3 class="text-xl font-bold text-forest-700 mb-4 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-full bg-forest-500 text-white flex items-center justify-center text-sm font-bold">2</span>
+                                역사공원 조성 방식의 구조적 한계 지적 및 대안 제시
+                            </h3>
+                            <p class="text-slate-600 text-sm leading-relaxed text-justify">
+                                본 연구는 부산시민공원이 ‘역사공원’을 표방했음에도 불구하고, 실제 조성 과정에서는 공학과 조경 중심의 전문가 구성으로 인해 역사 전문가가 배제되는 모순을 살펴보았다. 또한, 물리적 형태만 남은 채 역사적 맥락이 소거되는 재현 방식을 검토했다. 특히 ‘재생’과 ‘재활용’이라는 물리적 재현 방식이 오히려 장소성과 역사성을 희석시키는 역설적인 결과를 초래할 수 있는 가능성이 있음을 제시한다.
+                            </p>
+                        </div>
+                        
+                        <!-- 셋째: 향후 활용 기초 자료 -->
+                        <div class="bg-white p-6 rounded-2xl shadow-soft border border-slate-100">
+                            <h3 class="text-xl font-bold text-forest-700 mb-4 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-full bg-forest-500 text-white flex items-center justify-center text-sm font-bold">3</span>
+                                향후 반환공여지 및 다양한 공간 활용을 위한 기초 자료
+                            </h3>
+                            <p class="text-slate-600 text-sm leading-relaxed text-justify">
+                                본 연구의 내용은 미군 반환 공여지를 대상으로 한 도시 재생 사업에서, 물리적 복원을 넘어선 ‘장소성과 역사성의 온전한 재현’방식을 위한 참고 자료가 될 수 있을 것이다. 단순한 시설의 재활용을 넘어서, 기억을 그리고 역사를 어떻게 공간에 담아낼 것인가에 대한 인문학적인 성찰의 필요성을 제공함으로써 보다 나은 공원 조성 문화를 만드는 데 기여할 수 있기를 기대한다.
+                            </p>
                         </div>
                     </div>
 
@@ -722,12 +697,12 @@
             </div>
 
             <!-- PAGE: Chapter 6 -->
-            <div id="page-ch6" class="hidden-section absolute inset-0 overflow-y-auto">
-                <div class="max-w-4xl mx-auto p-8 md:p-12 fade-in">
+            <div id="page-ch6" class="hidden-section p-8 md:p-12 fade-in">
+                <div class="max-w-4xl mx-auto">
                     <span class="text-forest-500 font-bold text-xs tracking-widest mb-2 block">CHAPTER 06</span>
                     <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-12">참고문헌 및 예상 목차</h2>
 
-                    <!-- 1. Expected Table of Contents -->
+                    <!-- 1. Expected Table of Contents (UPDATED) -->
                     <div class="mb-12">
                         <h3 class="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
                             <i class="fa-solid fa-list-ol text-forest-500"></i> 예상 목차
@@ -737,23 +712,23 @@
                             <div class="space-y-8 relative z-10">
                                 <div class="flex items-center gap-6">
                                     <div class="w-8 h-8 rounded-full bg-forest-500 text-white flex items-center justify-center font-bold text-sm shrink-0 z-10 shadow-sm border-4 border-white">1</div>
-                                    <div><h4 class="font-bold text-slate-800 text-lg">서론</h4></div>
+                                    <div><h4 class="font-bold text-slate-800 text-lg">머리말</h4></div>
                                 </div>
                                 <div class="flex items-center gap-6">
                                     <div class="w-8 h-8 rounded-full bg-forest-100 text-forest-600 flex items-center justify-center font-bold text-sm shrink-0 z-10 shadow-sm border-4 border-white">2</div>
-                                    <div><h4 class="font-bold text-slate-800 text-lg">반환 운동과 공원화 결정</h4></div>
+                                    <div><h4 class="font-bold text-slate-800 text-lg">하야리아 부지의 반환과 부산시민공원 조성 결성 과정</h4></div>
                                 </div>
                                 <div class="flex items-center gap-6">
                                     <div class="w-8 h-8 rounded-full bg-forest-100 text-forest-600 flex items-center justify-center font-bold text-sm shrink-0 z-10 shadow-sm border-4 border-white">3</div>
-                                    <div><h4 class="font-bold text-slate-800 text-lg">부산시민공원을 둘러싼 다양한 시선들</h4></div>
+                                    <div><h4 class="font-bold text-slate-800 text-lg">공공역사의 장으로서의 부산시민공원과 공간을 둘러싼 시선들</h4></div>
                                 </div>
                                 <div class="flex items-center gap-6">
                                     <div class="w-8 h-8 rounded-full bg-forest-100 text-forest-600 flex items-center justify-center font-bold text-sm shrink-0 z-10 shadow-sm border-4 border-white">4</div>
-                                    <div><h4 class="font-bold text-slate-800 text-lg">역사와 기억의 재현</h4></div>
+                                    <div><h4 class="font-bold text-slate-800 text-lg">부산시민공원의 공간 재생과 역사성 재현</h4></div>
                                 </div>
                                 <div class="flex items-center gap-6">
                                     <div class="w-8 h-8 rounded-full bg-slate-700 text-white flex items-center justify-center font-bold text-sm shrink-0 z-10 shadow-sm border-4 border-white">5</div>
-                                    <div><h4 class="font-bold text-slate-800 text-lg">결론</h4></div>
+                                    <div><h4 class="font-bold text-slate-800 text-lg">맺음말</h4></div>
                                 </div>
                             </div>
                         </div>
@@ -812,65 +787,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <hr class="border-slate-100 my-12">
-
-                    <!-- 3. Expected Effects -->
-                    <div class="bg-gradient-to-br from-slate-50 to-slate-100 rounded-3xl p-8 border border-slate-200">
-                        <h3 class="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
-                            <i class="fa-solid fa-lightbulb text-amber-400"></i> 연구 기대효과 및 활용방안
-                        </h3>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                            
-                            <!-- Effect 1: Macro View -->
-                            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:border-forest-200 transition-colors group">
-                                <div class="flex items-start gap-4">
-                                    <div class="w-10 h-10 rounded-full bg-forest-50 text-forest-600 flex items-center justify-center shrink-0 group-hover:bg-forest-100 transition-colors">
-                                        <i class="fa-solid fa-earth-americas"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold text-slate-800 text-sm mb-2">단편적 사건을 넘어선 거시적 조망</h4>
-                                        <p class="text-xs text-slate-600 leading-relaxed text-justify">
-                                            기존 연구들이 특정 갈등 사건(욱일기 문양 등)이나 물리적 변화에 국한되었던 한계를 극복하고, 시민공원 조성 <strong>전 과정을 관통하는 종합적인 분석 틀</strong>을 제공합니다. 이는 미시적 사건들을 하나의 큰 역사적 흐름 속에서 재해석할 수 있게 합니다.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Effect 2: Mechanism of Memory Politics -->
-                            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:border-forest-200 transition-colors group">
-                                <div class="flex items-start gap-4">
-                                    <div class="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 group-hover:bg-blue-100 transition-colors">
-                                        <i class="fa-solid fa-magnifying-glass-chart"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold text-slate-800 text-sm mb-2">기억의 정치학 메커니즘 규명</h4>
-                                        <p class="text-xs text-slate-600 leading-relaxed text-justify">
-                                            정부, 지자체, 전문가, 시민사회 등 다양한 주체들의 인식 경합 과정을 분석하여, 역사적 기억이 단순히 복원되는 것이 아니라 어떻게 <strong>정치적으로 선별되고, 배제되며, 제도화되는지</strong> 그 작동 원리를 규명합니다.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Effect 3: Public History Model -->
-                            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:border-forest-200 transition-colors group md:col-span-2 lg:col-span-1">
-                                <div class="flex items-start gap-4">
-                                    <div class="w-10 h-10 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center shrink-0 group-hover:bg-rose-100 transition-colors">
-                                        <i class="fa-solid fa-landmark"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold text-slate-800 text-sm mb-2">공공역사 연구의 새로운 틀 제시</h4>
-                                        <p class="text-xs text-slate-600 leading-relaxed text-justify">
-                                            도시 공간이 '공식 기억'의 장으로 변모하는 과정을 추적함으로써, 단순한 지역사 서술을 넘어 도시 공간과 역사가 만나는 접점을 탐구하는 <strong>공공역사(Public History) 연구의 실증적 모델</strong>을 제시합니다.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
                 </div>
             </div>
 
@@ -891,8 +807,9 @@
             if (pageId === 'home') homeBtn.classList.add('hidden'); else homeBtn.classList.remove('hidden');
 
             if (pageId === 'ch2') initCh2Charts();
+            if (pageId === 'ch3') initCh4Charts(); // Moved chart initialization here
             if (pageId === 'detail-busan') setTimeout(() => initCh3Charts(), 100); 
-            if (pageId === 'ch4') initCh4Charts();
+            // initCh4Charts() call removed from ch4 section
         }
 
         function toggleAccordion(contentId, iconId) {
